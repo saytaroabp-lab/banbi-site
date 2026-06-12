@@ -1,6 +1,6 @@
 /* ============ Banbi shared styles ============ */
 :root{
-  --paper:#F1ECE0; --paper-deep:#E7DFCE; --card:#FFFFFF;
+  --paper:#FFFFFF; --paper-deep:#F5F2EA; --card:#FFFFFF;
   --ink:#2A2620; --forest:#34432F; --forest-soft:#52624A;
   --fawn:#C98A4B; --rust:#A6502F; --line:rgba(42,38,32,.12);
 }
@@ -16,7 +16,7 @@ a{color:inherit;}
 .announce b{color:var(--fawn);}
 
 /* nav */
-.nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:15px 28px;background:rgba(241,236,224,.92);backdrop-filter:blur(8px);box-shadow:0 1px 0 var(--line);}
+.nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:15px 28px;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);box-shadow:0 1px 0 var(--line);}
 .nav-logo{font-family:'Newsreader',serif;font-size:26px;font-weight:500;color:var(--forest);text-decoration:none;line-height:1;}
 .nav-links{display:flex;gap:26px;align-items:center;}
 .nav-links a{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--ink);text-decoration:none;text-transform:uppercase;transition:opacity .2s;}
@@ -61,8 +61,8 @@ a{color:inherit;}
 
 /* featured / menu cards */
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:22px;}
-.mcard{background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(42,38,32,.05);display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s;}
-.mcard:hover{transform:translateY(-4px);box-shadow:0 12px 26px rgba(42,38,32,.12);}
+.mcard{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 4px 14px rgba(42,38,32,.06);display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s;}
+.mcard:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(42,38,32,.13);}
 .mcard-img{aspect-ratio:4/3;background:#cbb389 center/cover no-repeat;}
 .mcard:nth-child(3n) .mcard-img{background-color:#7d8a6f;}
 .mcard:nth-child(3n+2) .mcard-img{background-color:#c98a4b;}
