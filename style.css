@@ -179,3 +179,17 @@ footer{background:var(--forest);color:rgba(255,255,255,.78);padding:54px 0 96px;
   footer{padding-bottom:120px;}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition:none!important;}}
+
+/* menu takeout / eat-in toggle */
+.menu-switch{text-align:center;margin-bottom:14px;}
+.menu-tabs{display:inline-flex;gap:0;border:2px solid var(--forest);border-radius:100px;padding:4px;background:#fff;}
+.mtab{font-family:var(--f-label);font-weight:600;font-size:14px;letter-spacing:.05em;text-transform:uppercase;padding:9px 24px;border:0;background:transparent;color:var(--forest);border-radius:100px;cursor:pointer;transition:background .2s,color .2s;}
+.mtab.is-active{background:var(--forest);color:#fff;}
+.menu-tax{font-family:var(--f-label);font-weight:500;font-size:13px;letter-spacing:.04em;color:var(--forest-soft);text-transform:uppercase;margin:14px 0 50px;text-align:center;}
+.tax-eatin{display:none;}
+.view-eatin .tax-takeout{display:none;}
+.view-eatin .tax-eatin{display:inline;}
+.only-eatin{display:none;}
+.view-eatin .only-eatin{display:block;}
+.litem.only-eatin{display:none;}
+.view-eatin .litem.only-eatin{display:flex;}
