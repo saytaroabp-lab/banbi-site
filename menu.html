@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Yellowtail&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="view-takeout">
 
 <div class="announce">店内・テイクアウト ― ご注文・お問い合わせは <b>(0857) 32-9271</b></div>
 
@@ -29,68 +29,128 @@
 <div class="page-head">
   <span class="eyebrow">Menu</span>
   <h1>Menu</h1>
-  <p>店内・テイクアウトを切り替えてご覧いただけます</p>
+  <p>テイクアウト・店内を切り替えてご覧いただけます</p>
 </div>
 
-<section class="sec" style="padding-top:56px;">
+<section class="sec" style="padding-top:52px;">
   <div class="wrap">
 
     <div class="menu-switch">
-      <div class="menu-tabs">
-        <button class="mtab is-active" data-view="takeout">テイクアウト</button>
-        <button class="mtab" data-view="eatin">店内（イートイン）</button>
-      </div>
+      <button class="mtab is-active" data-view="takeout">Takeout<small>テイクアウト</small></button>
+      <button class="mtab" data-view="eatin">Eat-in<small>店内</small></button>
     </div>
     <p class="menu-tax">
       <span class="tax-takeout">バーガー・サンドイッチはポテト付き ／ 価格は税込（8%）</span>
       <span class="tax-eatin">バーガー・サンドイッチはポテト付き ／ 価格は税込（10%）／ アルコール・デザート・ランチセットあり</span>
     </p>
 
-    <div id="menuview" class="view-takeout">
+    <div id="menuview">
 
     <!-- BURGERS -->
-    <div class="listcat-head" style="margin-bottom:26px;"><h3>Burgers</h3><span class="jp">バーガー</span><span class="hint">＋ French Fries ／ ポテト付き</span></div>
-    <div class="cards" style="margin-bottom:34px;">
-      <article class="mcard"><div class="mcard-img" style="background-image:url('avocado-cheese.jpg')"></div><div class="mcard-body"><div class="mcard-name">Avocado Cheese<small>アボカドチーズバーガー</small></div><p class="mcard-desc">アボカドとチェダーのコンビがリッチな味わい。</p><div class="mcard-foot"><span class="mcard-price">¥1,460</span></div></div></article>
-      <article class="mcard"><div class="mcard-img" style="background-image:url('bacon-cheese.jpg')"></div><div class="mcard-body"><div class="mcard-name">Bacon Cheese<small>自家製ベーコンチーズバーガー</small></div><p class="mcard-desc">ジューシーな自家製ベーコン。ここでしか食べられない食べ応え。</p><div class="mcard-foot"><span class="mcard-price">¥1,540</span></div></div></article>
-      <article class="mcard"><div class="mcard-img" style="background-image:url('mexican.jpg')"></div><div class="mcard-body"><div class="mcard-name">Mexican<small>メキシカンバーガー</small></div><p class="mcard-desc">タコミートとハラペーニョサルサのスパイシーな一個。</p><div class="mcard-foot"><span class="mcard-price">¥1,590</span></div></div></article>
-      <article class="mcard"><div class="mcard-img" style="background-image:url('double-cheese.jpg')"></div><div class="mcard-body"><div class="mcard-name">Double Cheese<small>ダブルチーズバーガー</small></div><p class="mcard-desc">パティとチーズをダブルに。腹ペコな人へ。</p><div class="mcard-foot"><span class="mcard-price">¥1,780</span></div></div></article>
-      <article class="mcard"><div class="mcard-img" style="background-image:url('mighty-meaty.jpg')"></div><div class="mcard-body"><div class="mcard-name">Mighty Meaty Patty<small>マイティミーティーパティ</small></div><p class="mcard-desc">パティ1.5倍の肉肉しい一個。グリルドオニオンとシンプルに。</p><div class="mcard-foot"><span class="mcard-price">¥1,450</span></div></div></article>
-      <article class="mcard"><div class="mcard-img" style="background-image:url('pineapple-bbq.jpg')"></div><div class="mcard-body"><div class="mcard-name">Pineapple BBQ<small>パイナップルBBQパイン</small></div><p class="mcard-desc">自家製パイナップルBBQソースに、パインを添えた絶妙な甘さ。</p><div class="mcard-foot"><span class="mcard-price">¥1,250</span></div></div></article>
-    </div>
-    <div class="litems" style="margin-bottom:64px;">
-      <div class="litem"><span class="nm">Hamburger<small>ハンバーガー</small></span><span class="lead"></span><span class="pr">¥1,100</span></div>
-      <div class="litem"><span class="nm">Cheese Burger<small>チーズバーガー</small></span><span class="lead"></span><span class="pr">¥1,260</span></div>
-      <div class="litem"><span class="nm">Teriyaki<small>テリヤキバーガー</small></span><span class="lead"></span><span class="pr">¥1,180</span></div>
-      <div class="litem"><span class="nm">Brownsugar Bacon Cheese<small>ブラウンシュガーベーコンチーズ</small></span><span class="lead"></span><span class="pr">¥1,560</span></div>
-      <div class="litem"><span class="nm">Original Friedchicken<small>自家製フライドチキンバーガー</small></span><span class="lead"></span><span class="pr">¥1,200</span></div>
-      <div class="litem"><span class="nm">Banbi Special<small>バンビスペシャル（別途メニュー）</small></span><span class="lead"></span><span class="pr">ASK</span></div>
-    </div>
-
-    <!-- SANDWICHES -->
-    <div class="listcat-head" style="margin-bottom:26px;"><h3>Sandwiches</h3><span class="jp">サンドイッチ</span><span class="hint">＋ French Fries ／ ポテト付き</span></div>
-    <div class="cards" style="margin-bottom:34px;">
-      <article class="mcard"><div class="mcard-img" style="background-image:url('blt.jpg')"></div><div class="mcard-body"><div class="mcard-name">B.L.T<small>ベーコン・レタス・トマト</small></div><p class="mcard-desc">自家製ベーコンの美味しさを感じる、王道のサンドイッチ。</p><div class="mcard-foot"><span class="mcard-price">¥1,400</span></div></div></article>
-      <article class="mcard"><div class="mcard-img" style="background-image:url('patty-melt.jpg')"></div><div class="mcard-body"><div class="mcard-name">Classic Patty Melt<small>クラシックパティメルト</small></div><p class="mcard-desc">パティの旨味を際立たせたサンドイッチ。</p><div class="mcard-foot"><span class="mcard-price">¥1,150</span></div></div></article>
-      <article class="mcard"><div class="mcard-img" style="background-image:url('avocado-shrimp.jpg')"></div><div class="mcard-body"><div class="mcard-name">Avocado &amp; Shrimp<small>エビとアボカドのサンドイッチ</small></div><p class="mcard-desc">海老とアボカドをマヨで。優しくもパンチのある一品。</p><div class="mcard-foot"><span class="mcard-price">¥1,100</span></div></div></article>
-    </div>
-    <div class="litems" style="margin-bottom:64px;">
-      <div class="litem"><span class="nm">Grilled Ham<small>グリルドハム</small></span><span class="lead"></span><span class="pr">¥1,100</span></div>
-      <div class="litem"><span class="nm">Grilled Chicken<small>グリルドチキン</small></span><span class="lead"></span><span class="pr">¥1,150</span></div>
-      <div class="litem"><span class="nm">Fresh Vegetable<small>フレッシュベジタブル</small></span><span class="lead"></span><span class="pr">¥1,180</span></div>
-    </div>
-
-    <!-- RICE -->
     <div class="listcat">
-      <div class="listcat-head"><h3>Rice</h3><span class="jp">ライス（平日限定）</span><span class="hint">鳥取県産米使用</span></div>
-      <div class="litems">
-        <div class="litem"><span class="nm">Chicken Over Rice<small>チキンオーバーライス</small></span><span class="lead"></span><span class="pr">¥990</span></div>
-        <div class="litem"><span class="nm">Taco Rice<small>タコライス</small></span><span class="lead"></span><span class="pr">¥990</span></div>
-        <div class="litem"><span class="nm">Hamburg Steak Rice<small>ハンバーグライス 目玉焼きのせ</small></span><span class="lead"></span><span class="pr">¥1,150</span></div>
+      <div class="listcat-head"><h3>Burgers</h3><span class="jp">バーガー</span><span class="hint">＋ French Fries ／ ポテト付き</span></div>
+      <!-- eat-in: photo cards + remaining text -->
+      <div class="cardgrid cards">
+        <article class="mcard"><div class="mcard-img" style="background-image:url('avocado-cheese.jpg')"></div><div class="mcard-body"><div class="mcard-name">Avocado Cheese<small>アボカドチーズバーガー</small></div><p class="mcard-desc">アボカドとチェダーのコンビがリッチな味わい。</p><div class="mcard-foot"><span class="mcard-price">¥1,460</span></div></div></article>
+        <article class="mcard"><div class="mcard-img" style="background-image:url('bacon-cheese.jpg')"></div><div class="mcard-body"><div class="mcard-name">Bacon Cheese<small>自家製ベーコンチーズバーガー</small></div><p class="mcard-desc">ジューシーな自家製ベーコン。ここでしか食べられない食べ応え。</p><div class="mcard-foot"><span class="mcard-price">¥1,540</span></div></div></article>
+        <article class="mcard"><div class="mcard-img" style="background-image:url('mexican.jpg')"></div><div class="mcard-body"><div class="mcard-name">Mexican<small>メキシカンバーガー</small></div><p class="mcard-desc">タコミートとハラペーニョサルサのスパイシーな一個。</p><div class="mcard-foot"><span class="mcard-price">¥1,590</span></div></div></article>
+        <article class="mcard"><div class="mcard-img" style="background-image:url('double-cheese.jpg')"></div><div class="mcard-body"><div class="mcard-name">Double Cheese<small>ダブルチーズバーガー</small></div><p class="mcard-desc">パティとチーズをダブルに。腹ペコな人へ。</p><div class="mcard-foot"><span class="mcard-price">¥1,780</span></div></div></article>
+        <article class="mcard"><div class="mcard-img" style="background-image:url('mighty-meaty.jpg')"></div><div class="mcard-body"><div class="mcard-name">Mighty Meaty Patty<small>マイティミーティーパティ</small></div><p class="mcard-desc">パティ1.5倍の肉肉しい一個。グリルドオニオンとシンプルに。</p><div class="mcard-foot"><span class="mcard-price">¥1,450</span></div></div></article>
+        <article class="mcard"><div class="mcard-img" style="background-image:url('pineapple-bbq.jpg')"></div><div class="mcard-body"><div class="mcard-name">Pineapple BBQ<small>パイナップルBBQパイン</small></div><p class="mcard-desc">自家製パイナップルBBQソースに、パインを添えた絶妙な甘さ。</p><div class="mcard-foot"><span class="mcard-price">¥1,250</span></div></div></article>
+      </div>
+      <div class="ei-list">
+        <div class="litem"><span class="nm">Hamburger<small>ハンバーガー</small></span><span class="lead"></span><span class="pr">¥1,100</span></div>
+        <div class="litem"><span class="nm">Cheese Burger<small>チーズバーガー</small></span><span class="lead"></span><span class="pr">¥1,260</span></div>
+        <div class="litem"><span class="nm">Teriyaki<small>テリヤキバーガー</small></span><span class="lead"></span><span class="pr">¥1,180</span></div>
+        <div class="litem"><span class="nm">Brownsugar Bacon Cheese<small>ブラウンシュガーベーコンチーズ</small></span><span class="lead"></span><span class="pr">¥1,560</span></div>
+        <div class="litem"><span class="nm">Original Friedchicken<small>自家製フライドチキンバーガー</small></span><span class="lead"></span><span class="pr">¥1,200</span></div>
+        <div class="litem"><span class="nm">Banbi Special<small>バンビスペシャル（別途メニュー）</small></span><span class="lead"></span><span class="pr">ASK</span></div>
+      </div>
+      <!-- takeout: full text list -->
+      <div class="to-list">
+        <div class="litem"><span class="nm">Avocado Cheese<small>アボカドチーズバーガー</small></span><span class="lead"></span><span class="pr">¥1,460</span></div>
+        <div class="litem"><span class="nm">Bacon Cheese<small>自家製ベーコンチーズバーガー</small></span><span class="lead"></span><span class="pr">¥1,540</span></div>
+        <div class="litem"><span class="nm">Mexican<small>メキシカンバーガー</small></span><span class="lead"></span><span class="pr">¥1,590</span></div>
+        <div class="litem"><span class="nm">Double Cheese<small>ダブルチーズバーガー</small></span><span class="lead"></span><span class="pr">¥1,780</span></div>
+        <div class="litem"><span class="nm">Mighty Meaty Patty<small>マイティミーティーパティ</small></span><span class="lead"></span><span class="pr">¥1,450</span></div>
+        <div class="litem"><span class="nm">Pineapple BBQ<small>パイナップルBBQパイン</small></span><span class="lead"></span><span class="pr">¥1,250</span></div>
+        <div class="litem"><span class="nm">Hamburger<small>ハンバーガー</small></span><span class="lead"></span><span class="pr">¥1,100</span></div>
+        <div class="litem"><span class="nm">Cheese Burger<small>チーズバーガー</small></span><span class="lead"></span><span class="pr">¥1,260</span></div>
+        <div class="litem"><span class="nm">Teriyaki<small>テリヤキバーガー</small></span><span class="lead"></span><span class="pr">¥1,180</span></div>
+        <div class="litem"><span class="nm">Brownsugar Bacon Cheese<small>ブラウンシュガーベーコンチーズ</small></span><span class="lead"></span><span class="pr">¥1,560</span></div>
+        <div class="litem"><span class="nm">Original Friedchicken<small>自家製フライドチキンバーガー</small></span><span class="lead"></span><span class="pr">¥1,200</span></div>
+        <div class="litem"><span class="nm">Banbi Special<small>バンビスペシャル（別途メニュー）</small></span><span class="lead"></span><span class="pr">ASK</span></div>
       </div>
     </div>
 
-    <!-- SIDE -->
+    <!-- SANDWICHES -->
+    <div class="listcat">
+      <div class="listcat-head"><h3>Sandwiches</h3><span class="jp">サンドイッチ</span><span class="hint">＋ French Fries ／ ポテト付き</span></div>
+      <div class="cardgrid cards">
+        <article class="mcard"><div class="mcard-img" style="background-image:url('blt.jpg')"></div><div class="mcard-body"><div class="mcard-name">B.L.T<small>ベーコン・レタス・トマト</small></div><p class="mcard-desc">自家製ベーコンの美味しさを感じる、王道のサンドイッチ。</p><div class="mcard-foot"><span class="mcard-price">¥1,400</span></div></div></article>
+        <article class="mcard"><div class="mcard-img" style="background-image:url('patty-melt.jpg')"></div><div class="mcard-body"><div class="mcard-name">Classic Patty Melt<small>クラシックパティメルト</small></div><p class="mcard-desc">パティの旨味を際立たせたサンドイッチ。</p><div class="mcard-foot"><span class="mcard-price">¥1,150</span></div></div></article>
+        <article class="mcard"><div class="mcard-img" style="background-image:url('avocado-shrimp.jpg')"></div><div class="mcard-body"><div class="mcard-name">Avocado &amp; Shrimp<small>エビとアボカドのサンドイッチ</small></div><p class="mcard-desc">海老とアボカドをマヨで。優しくもパンチのある一品。</p><div class="mcard-foot"><span class="mcard-price">¥1,100</span></div></div></article>
+      </div>
+      <div class="ei-list">
+        <div class="litem"><span class="nm">Grilled Ham<small>グリルドハム</small></span><span class="lead"></span><span class="pr">¥1,100</span></div>
+        <div class="litem"><span class="nm">Grilled Chicken<small>グリルドチキン</small></span><span class="lead"></span><span class="pr">¥1,150</span></div>
+        <div class="litem"><span class="nm">Fresh Vegetable<small>フレッシュベジタブル</small></span><span class="lead"></span><span class="pr">¥1,180</span></div>
+      </div>
+      <div class="to-list">
+        <div class="litem"><span class="nm">B.L.T<small>ベーコン・レタス・トマト</small></span><span class="lead"></span><span class="pr">¥1,400</span></div>
+        <div class="litem"><span class="nm">Classic Patty Melt<small>クラシックパティメルト</small></span><span class="lead"></span><span class="pr">¥1,150</span></div>
+        <div class="litem"><span class="nm">Avocado &amp; Shrimp<small>エビとアボカドのサンドイッチ</small></span><span class="lead"></span><span class="pr">¥1,100</span></div>
+        <div class="litem"><span class="nm">Grilled Ham<small>グリルドハム</small></span><span class="lead"></span><span class="pr">¥1,100</span></div>
+        <div class="litem"><span class="nm">Grilled Chicken<small>グリルドチキン</small></span><span class="lead"></span><span class="pr">¥1,150</span></div>
+        <div class="litem"><span class="nm">Fresh Vegetable<small>フレッシュベジタブル</small></span><span class="lead"></span><span class="pr">¥1,180</span></div>
+      </div>
+    </div>
+
+    <!-- CUSTOM (moved under Sandwiches) -->
+    <div class="listcat">
+      <div class="listcat-head"><h3>Custom</h3><span class="jp">カスタム</span></div>
+      <div class="custom">
+        <h4>あなただけの一個に。</h4>
+        <p class="lead-jp">お好みのトッピングやソースを追加・変更できます。</p>
+        <div class="custom-grid">
+          <div>
+            <h5>Topping</h5>
+            <div class="crow"><span class="nm">エッグ／パイン／ピクルス／ハラペーニョ／各ソース</span><span class="pr">¥130</span></div>
+            <div class="crow"><span class="nm">チェダー／グリルドオニオン</span><span class="pr">¥180</span></div>
+            <div class="crow"><span class="nm">アボカド／モッツァレラ</span><span class="pr">¥220</span></div>
+            <div class="crow"><span class="nm">自家製ベーコン</span><span class="pr">¥330</span></div>
+            <div class="crow"><span class="nm">エクストラパティ</span><span class="pr">¥550</span></div>
+          </div>
+          <div>
+            <h5>Dip</h5>
+            <div class="crow"><span class="nm">スイチリ／サワークリーム／サルサ／ブルーチーズ</span><span class="pr">¥200</span></div>
+            <div class="crow"><span class="nm">ハーフ＆ハーフ</span><span class="pr">¥300</span></div>
+          </div>
+          <div>
+            <h5>Exchange</h5>
+            <div class="crow"><span class="nm">ポテト → オニオンリング</span><span class="pr">¥250</span></div>
+            <div class="crow"><span class="nm">大盛フレンチフライ</span><span class="pr">¥200</span></div>
+            <div class="crow only-eatin"><span class="nm">ポテト → サラダに変更</span><span class="pr">¥0</span></div>
+            <div class="crow only-eatin"><span class="nm">フレンチフライ無し</span><span class="pr">-¥150</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RICE (text + photo bottom-right) -->
+    <div class="listcat">
+      <div class="listcat-head"><h3>Rice</h3><span class="jp">ライス（平日限定）</span><span class="hint">鳥取県産米使用</span></div>
+      <div class="rice-row">
+        <div class="litems" style="grid-template-columns:1fr;">
+          <div class="litem"><span class="nm">Chicken Over Rice<small>チキンオーバーライス</small></span><span class="lead"></span><span class="pr">¥990</span></div>
+          <div class="litem"><span class="nm">Taco Rice<small>タコライス</small></span><span class="lead"></span><span class="pr">¥990</span></div>
+          <div class="litem"><span class="nm">Hamburg Steak Rice<small>ハンバーグライス 目玉焼きのせ</small></span><span class="lead"></span><span class="pr">¥1,150</span></div>
+        </div>
+        <div class="rice-photo" style="background-image:url('chicken-rice.jpg')" aria-label="チキンオーバーライス"></div>
+      </div>
+    </div>
+
+    <!-- SIDE (text + wide photo below) -->
     <div class="listcat">
       <div class="listcat-head"><h3>Side Dishes</h3><span class="jp">サイドメニュー</span></div>
       <div class="litems">
@@ -107,7 +167,8 @@
         <div class="litem"><span class="nm">Clam Chowder<small>クラムチャウダー</small></span><span class="lead"></span><span class="pr">¥480</span></div>
         <div class="litem only-eatin"><span class="nm">Onion Gratin Soup<small>オニオングラタンスープ（冬季限定）</small></span><span class="lead"></span><span class="pr">¥600</span></div>
       </div>
-      <p class="only-eatin" style="font-family:'Oswald',sans-serif;font-weight:500;font-size:12.5px;color:var(--forest-soft);margin-top:14px;">＋¥150 でスープをトーストセットにできます。</p>
+      <div class="cat-photo wide" style="background-image:url('sidemenus.jpg')" aria-label="サイドメニュー"></div>
+      <p class="only-eatin" style="font-family:'Oswald',sans-serif;font-weight:500;font-size:12.5px;color:var(--forest-soft);margin-top:12px;">＋¥150 でスープをトーストセットにできます。</p>
     </div>
 
     <!-- PANCAKE (eat-in only) -->
@@ -175,37 +236,6 @@
       </div>
     </div>
 
-    <!-- CUSTOM -->
-    <div class="listcat">
-      <div class="listcat-head"><h3>Custom</h3><span class="jp">カスタム</span></div>
-      <div class="custom">
-        <h4>あなただけの一個に。</h4>
-        <p class="lead-jp">お好みのトッピングやソースを追加・変更できます。</p>
-        <div class="custom-grid">
-          <div>
-            <h5>Topping</h5>
-            <div class="crow"><span class="nm">エッグ／パイン／ピクルス／ハラペーニョ／各ソース</span><span class="pr">¥130</span></div>
-            <div class="crow"><span class="nm">チェダー／グリルドオニオン</span><span class="pr">¥180</span></div>
-            <div class="crow"><span class="nm">アボカド／モッツァレラ</span><span class="pr">¥220</span></div>
-            <div class="crow"><span class="nm">自家製ベーコン</span><span class="pr">¥330</span></div>
-            <div class="crow"><span class="nm">エクストラパティ</span><span class="pr">¥550</span></div>
-          </div>
-          <div>
-            <h5>Dip</h5>
-            <div class="crow"><span class="nm">スイチリ／サワークリーム／サルサ／ブルーチーズ</span><span class="pr">¥200</span></div>
-            <div class="crow"><span class="nm">ハーフ＆ハーフ</span><span class="pr">¥300</span></div>
-          </div>
-          <div>
-            <h5>Exchange</h5>
-            <div class="crow"><span class="nm">ポテト → オニオンリング</span><span class="pr">¥250</span></div>
-            <div class="crow"><span class="nm">大盛フレンチフライ</span><span class="pr">¥200</span></div>
-            <div class="crow only-eatin" style="display:none;"><span class="nm">ポテト → サラダに変更</span><span class="pr">¥0</span></div>
-            <div class="crow only-eatin" style="display:none;"><span class="nm">フレンチフライ無し</span><span class="pr">-¥150</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     </div><!-- /menuview -->
 
   </div>
@@ -250,16 +280,12 @@
   toggle.addEventListener('click',()=>{links.classList.toggle('open');toggle.classList.toggle('open');});
   links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');toggle.classList.remove('open');}));
 
-  const view=document.getElementById('menuview');
   document.querySelectorAll('.mtab').forEach(btn=>{
     btn.addEventListener('click',()=>{
       document.querySelectorAll('.mtab').forEach(b=>b.classList.remove('is-active'));
       btn.classList.add('is-active');
-      const v=btn.dataset.view;
-      view.classList.remove('view-takeout','view-eatin');
-      view.classList.add('view-'+v);
-      // eat-in-only inline rows (table custom rows)
-      document.querySelectorAll('.crow.only-eatin').forEach(r=>{r.style.display=(v==='eatin')?'flex':'none';});
+      document.body.classList.remove('view-takeout','view-eatin');
+      document.body.classList.add('view-'+btn.dataset.view);
     });
   });
 </script>
