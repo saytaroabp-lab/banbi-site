@@ -53,33 +53,29 @@
   <div class="rule bottom"></div>
 </section>
 
-<!-- NEWS -->
-<section class="news sec" id="news">
+<!-- TILES -->
+<section class="tiles sec" id="news">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow">News</span>
-      <h2>お知らせ</h2>
-      <p>最新のスペシャルメニューと営業カレンダー。</p>
-    </div>
-    <div class="news-list">
-      <article class="news-item">
-        <figure class="ni-img"><img src="news-calendar.jpg" alt="2026年6月 営業カレンダー（OPEN 10:00-16:00）"></figure>
-        <div class="ni-text">
-          <h3>Calendar</h3>
-          <p class="ni-sub" id="cal-month">2026 June</p>
-        </div>
-      </article>
-      <article class="news-item alt">
-        <figure class="ni-img"><img src="news-special.jpg" alt="BANBI SPECIAL グリーンワカモレバーガー／自家製チミチュリソース"></figure>
-        <div class="ni-text">
-          <h3>Banbi Special</h3>
-          <p class="ni-desc">BANBIオリジナルの期間限定のスペシャルなバーガーです。<br>
-            是非ともご賞味ください。</p>
-        </div>
-      </article>
+    <div class="tile-grid">
+      <button class="tile" type="button" data-popup="popup-calendar" style="background-image:url('news-calendar.jpg')">
+        <span class="tile-label"><strong>Calendar</strong><small>カレンダー</small></span>
+      </button>
+      <button class="tile" type="button" data-popup="popup-special" style="background-image:url('news-special.jpg')">
+        <span class="tile-label"><strong>Special</strong><small>スペシャル</small></span>
+      </button>
+      <a class="tile" href="ordoeuvre.html" style="background-image:url('ordoeuvre.jpg')">
+        <span class="tile-label"><strong>Hors d'oeuvre</strong><small>オードブル</small></span>
+      </a>
+      <a class="tile" href="menu.html" style="background-image:url('bacon-cheese.jpg')">
+        <span class="tile-label"><strong>Menu</strong><small>メニュー</small></span>
+      </a>
     </div>
   </div>
 </section>
+
+<!-- POPUPS -->
+<div class="popup" id="popup-calendar"><div class="popup-inner"><button class="popup-close" type="button" aria-label="閉じる">×</button><img src="news-calendar.jpg" alt="営業カレンダー"></div></div>
+<div class="popup" id="popup-special"><div class="popup-inner"><button class="popup-close" type="button" aria-label="閉じる">×</button><img src="news-special.jpg" alt="Banbi Special グリーンワカモレバーガー"></div></div>
 
 <!-- INTRO -->
 <section class="intro">
@@ -221,6 +217,15 @@
     var el=document.getElementById('cal-month');
     if(el){var d=new Date();el.textContent=d.getFullYear()+' '+d.toLocaleString('en-US',{month:'long'});}
   })();
+
+  // タイルのポップアップ
+  document.querySelectorAll('.tile[data-popup]').forEach(function(t){
+    t.addEventListener('click',function(){var p=document.getElementById(t.getAttribute('data-popup'));if(p)p.classList.add('open');});
+  });
+  document.querySelectorAll('.popup').forEach(function(p){
+    p.addEventListener('click',function(e){if(e.target===p||e.target.classList.contains('popup-close'))p.classList.remove('open');});
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.querySelectorAll('.popup.open').forEach(function(p){p.classList.remove('open');});}});
 </script>
 
 </body>
