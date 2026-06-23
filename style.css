@@ -39,17 +39,9 @@ a{color:inherit;}
 .btn svg{width:16px;height:16px;}
 
 /* hero */
-.hero{position:relative;min-height:80svh;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;overflow:hidden;}
-.hero-photo{position:absolute;inset:0;background:#2c3727 center/cover no-repeat;background-image:url('hero.jpg');}
-.hero-grad{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,22,15,.55) 0%,rgba(18,22,15,.30) 36%,rgba(18,22,15,.42) 58%,rgba(18,22,15,.9) 100%);}
-.hero-inner{position:relative;padding-bottom:50px;}
-.hero-tag{font-family:var(--f-label);font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.88);margin-bottom:6px;}
-.hero h1{font-family:var(--f-script);font-weight:400;font-size:clamp(72px,16vw,168px);line-height:1;color:#fff;margin:.02em 0 .04em;}
-.hero-slogan{font-family:var(--f-display);text-transform:uppercase;font-size:clamp(20px,3.8vw,38px);letter-spacing:.02em;line-height:1;color:var(--fawn);margin-bottom:18px;}
-.hero-sub{font-size:clamp(15px,2.2vw,18px);font-weight:500;max-width:34ch;color:rgba(255,255,255,.95);margin-bottom:26px;}
-.hero-cta{display:flex;gap:12px;flex-wrap:wrap;}
-.hero-cta .btn-outline{color:#fff;border-color:rgba(255,255,255,.75);}
-.hero-cta .btn-outline:hover{background:#fff;color:var(--forest);}
+.hero{position:relative;display:block;overflow:hidden;background:#FCD307;}
+.hero-img{width:100%;height:auto;display:block;}
+.hero-sp{display:none;}
 
 /* section helpers */
 .sec{padding:96px 0;}
@@ -205,10 +197,8 @@ footer{background:var(--forest);color:rgba(255,255,255,.78);padding:54px 0 96px;
   .mtab small{font-size:10px;}
   .listcat-head{gap:8px 12px;}
   .listcat-head .hint{margin-left:0;flex-basis:100%;}
-  .hero-tag{display:none;}
-  .hero-cta .btn-outline{display:none;}
-  .hero-cta .btn-primary{flex:1 1 auto;justify-content:center;}
-  .hero-sub{max-width:none;}
+  .hero-pc{display:none;}
+  .hero-sp{display:block;}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition:none!important;}}
 
