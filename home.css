@@ -171,5 +171,5 @@ img{display:block;max-width:100%;}
 @media(max-width:920px){
   .feat-stack{grid-template-columns:1fr;grid-template-areas:"head" "pic" "desc";gap:16px;}
   .fs-head,.fs-desc{align-self:auto;}
-  .fs-pic img{height:auto;aspect-ratio:4/5;}
+  .fs-pic img{height:auto;aspect-ratio:3/2;}
 }
