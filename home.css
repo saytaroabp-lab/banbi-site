@@ -239,5 +239,8 @@ img{display:block;max-width:100%;}
   .hero-pic::after{content:"";position:absolute;inset:0;border-radius:16px;background:linear-gradient(180deg,rgba(18,30,22,0) 22%,rgba(18,30,22,.5) 48%,rgba(18,30,22,.86) 100%);}
   .hero-copy{position:relative;z-index:1;align-self:end;padding:0 20px 24px;color:#fff;}
   .hero-copy h1{color:#fff;font-size:clamp(60px,18vw,92px);line-height:.88;text-shadow:0 2px 18px rgba(0,0,0,.25);}
-  .hero-link{color:#fff;border-bottom-color:#fff;margin-top:18px;align-self:flex-start;}
+  .hero-copy .hero-link{color:#fff;border-bottom-color:#fff;margin-top:18px;align-self:flex-start;}
 }
+
+/* thin divider above Dine in / Catering (same line as the section rows) */
+.sec-rule .feat{border-top:1px solid var(--line);padding-top:56px;}
