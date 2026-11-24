@@ -210,3 +210,6 @@ body.view-eatin .mrow.only-eatin,body.view-eatin .crow.only-eatin{display:flex;}
 }
 @media(max-width:760px){.mcards,.mcards.three{scroll-padding-inline:28px;}}
 @media(max-width:460px){.mcards,.mcards.three{scroll-padding-inline:18px;}}
+
+/* small note in articles: <p class="post-note">※…</p> */
+.post-body .post-note{font-size:12.5px;line-height:1.8;color:var(--green-soft);}
