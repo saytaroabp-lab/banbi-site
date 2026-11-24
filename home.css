@@ -225,3 +225,6 @@ img{display:block;max-width:100%;}
 .np-pic[hidden]{display:none;}
 .np-pic[hidden] + .np-body{padding-top:30px;}
 @media(max-width:620px){.np .popup-close{top:8px;right:8px;}.np-body{padding:18px 20px 22px;}}
+
+/* preloader: skip after first view */
+.skip-pl #preloader{display:none !important;}

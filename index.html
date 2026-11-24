@@ -13,6 +13,10 @@
 <link rel="stylesheet" href="https://use.typekit.net/qxc4ltq.css">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:wght@400;500;600;700&family=Yellowtail&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="home.css">
+<script>
+  /* ローディングは最初の1回だけ（同じタブで2回目以降・#about などのページ内リンクで来たときは出さない） */
+  try{if(sessionStorage.getItem('banbiLoaded')||location.hash){document.documentElement.classList.add('skip-pl');}}catch(e){}
+</script>
 </head>
 <body>
 <div id="preloader"><div class="pl-inner"><div class="burger"><span class="bl bun-top"></span><span class="bl cheese"></span><span class="bl patty"></span><span class="bl tomato"></span><span class="bl lettuce"></span><span class="bl bun-bottom"></span></div><span class="pl-logo">Banbi</span><div class="pl-meter"><div class="pl-pctrow"><span id="pl-pct">0</span>% <span class="pl-word">loading</span></div><div class="pl-gauge"><span class="pl-fill" id="pl-fill"></span></div></div></div></div>
@@ -26,7 +30,7 @@
     <button class="nav-toggle" id="toggle" aria-label="メニュー"><span></span><span></span><span></span></button>
     <div class="nav-links" id="links">
       <a href="menu.html">Menu</a>
-      <a href="ordoeuvre.html">Hors d'oeuvre</a>
+      <a href="catering.html">Catering</a>
       <a href="news.html">News</a>
       <a href="#about">About</a>
       <a href="#access">Access</a>
@@ -78,7 +82,7 @@
   <div class="wrap">
     <div class="feat-stack">
       <h2 class="fs-head">Made by hand,<br>every day</h2>
-      <figure class="fs-pic"><img src="bacon-cheese.jpg" alt="自家製ベーコンチーズバーガー"></figure>
+      <figure class="fs-pic"><img src="catering-grill.jpg" alt="鉄板でパティとバンズを焼いて、ハンバーガーを手作りしているところ"></figure>
       <div class="fs-desc"><p>バンズもベーコンも自家製。鳥取・川端の小さな厨房で、ひとつひとつ手間をかけて焼き上げています。ここでしか食べられない一個を、ぜひ。</p></div>
     </div>
   </div>
@@ -138,6 +142,22 @@
   </div>
 </section>
 
+<!-- CATERING -->
+<section class="sec" id="catering">
+  <div class="wrap">
+    <div class="feat">
+      <div class="feat-pic"><img src="ordoeuvre.jpg" alt="Banbiのオードブル盛り合わせ（ミニバーガー・自家製ベーコン・ポテト・オニオンリングなど）" loading="lazy"></div>
+      <div class="feat-copy">
+        <p class="ey">Catering &amp; Hors d'oeuvre</p>
+        <h2>For parties,<br>and big orders</h2>
+        <p class="jp">ケータリング・オードブル</p>
+        <p>会議やイベントのボックスランチなど、10食以上の大量テイクアウトを承ります（ご予約は2日前まで）。パーティーには、ハンバーガー屋のオードブル盛り合わせもどうぞ。</p>
+        <a href="catering.html" class="hero-link">ケータリングを見る <span class="ar">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ACCESS -->
 <section class="sec" id="access">
   <div class="wrap">
@@ -185,7 +205,7 @@
       <div>
         <h4>Menu</h4>
         <a href="menu.html">メニュー</a>
-        <a href="ordoeuvre.html">オードブル</a>
+        <a href="catering.html">ケータリング</a>
         <a href="news.html">お知らせ</a>
       </div>
       <div>
@@ -256,6 +276,8 @@
 (function(){
   var pre=document.getElementById("preloader"),pct=document.getElementById("pl-pct"),fill=document.getElementById("pl-fill");
   if(!pre||!pct||!fill)return;
+  if(document.documentElement.classList.contains('skip-pl')){pre.parentNode.removeChild(pre);return;}
+  try{sessionStorage.setItem('banbiLoaded','1');}catch(e){}
   var dur=5000,start=null;
   function step(ts){
     if(!start)start=ts;
