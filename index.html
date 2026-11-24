@@ -94,33 +94,54 @@
   <div class="wrap">
     <div class="srow">
       <span class="lab">Menu</span>
-      <a class="more" href="menu.html">すべて見る <span>→</span></a>
+      <div class="srow-r">
+        <div class="hc-nav" aria-label="メニューを送る">
+          <button type="button" class="hc-btn" data-dir="-1" aria-label="前へ">←</button>
+          <button type="button" class="hc-btn" data-dir="1" aria-label="次へ">→</button>
+        </div>
+        <a class="more" href="menu.html">すべて見る <span>→</span></a>
+      </div>
     </div>
-    <div class="hcards">
+    <div class="hcards" id="hcards" tabindex="0" aria-label="メニュー（横にスクロール）">
       <a class="hcard" href="menu.html">
         <div class="hcard-img" style="background-image:url('avocado-cheese.jpg')"></div>
-        <div class="nm">Avocado Cheese<small>アボカドチーズバーガー</small></div>
-        <div class="pr">¥1,460</div>
+        <div class="nm">Avocado Cheese</div>
+      </a>
+      <a class="hcard" href="menu.html">
+        <div class="hcard-img" style="background-image:url('bacon-cheese.jpg')"></div>
+        <div class="nm">Bacon Cheese</div>
       </a>
       <a class="hcard" href="menu.html">
         <div class="hcard-img" style="background-image:url('mexican.jpg')"></div>
-        <div class="nm">Mexican<small>メキシカンバーガー</small></div>
-        <div class="pr">¥1,590</div>
+        <div class="nm">Mexican</div>
       </a>
       <a class="hcard" href="menu.html">
         <div class="hcard-img" style="background-image:url('double-cheese.jpg')"></div>
-        <div class="nm">Double Cheese<small>ダブルチーズバーガー</small></div>
-        <div class="pr">¥1,780</div>
+        <div class="nm">Double Cheese</div>
       </a>
       <a class="hcard" href="menu.html">
         <div class="hcard-img" style="background-image:url('mighty-meaty.jpg')"></div>
-        <div class="nm">Mighty Meaty<small>マイティミーティーパティ</small></div>
-        <div class="pr">¥1,450</div>
+        <div class="nm">Mighty Meaty</div>
       </a>
       <a class="hcard" href="menu.html">
         <div class="hcard-img" style="background-image:url('pineapple-bbq.jpg')"></div>
-        <div class="nm">Pineapple BBQ<small>パイナップルBBQパイン</small></div>
-        <div class="pr">¥1,250</div>
+        <div class="nm">Pineapple BBQ</div>
+      </a>
+      <a class="hcard" href="menu.html">
+        <div class="hcard-img" style="background-image:url('blt.jpg')"></div>
+        <div class="nm">B.L.T</div>
+      </a>
+      <a class="hcard" href="menu.html">
+        <div class="hcard-img" style="background-image:url('patty-melt.jpg')"></div>
+        <div class="nm">Classic Patty Melt</div>
+      </a>
+      <a class="hcard" href="menu.html">
+        <div class="hcard-img" style="background-image:url('avocado-shrimp.jpg')"></div>
+        <div class="nm">Avocado &amp; Shrimp</div>
+      </a>
+      <a class="hcard" href="menu.html">
+        <div class="hcard-img" style="background-image:url('chicken-rice.jpg')"></div>
+        <div class="nm">Chicken Over Rice</div>
       </a>
     </div>
   </div>
@@ -247,6 +268,17 @@
   const links=document.getElementById('links');
   toggle.addEventListener('click',()=>{links.classList.toggle('open');});
   links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+
+  // Menu の横スクロール（← → ボタン）
+  (function(){
+    var row=document.getElementById('hcards'); if(!row)return;
+    var btns=document.querySelectorAll('.hc-btn');
+    function step(){var c=row.querySelector('.hcard');return c?c.getBoundingClientRect().width+16:300;}
+    function update(){var max=row.scrollWidth-row.clientWidth-2;btns[0].disabled=row.scrollLeft<=2;btns[1].disabled=row.scrollLeft>=max;}
+    btns.forEach(function(b){b.addEventListener('click',function(){row.scrollBy({left:step()*Number(b.dataset.dir)*2,behavior:'smooth'});});});
+    row.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();row.scrollBy({left:step()*(e.key==='ArrowRight'?1:-1),behavior:'smooth'});}});
+    row.addEventListener('scroll',update,{passive:true}); window.addEventListener('resize',update); update();
+  })();
 
   // News プレビュー（押すとポップアップ → 「詳しく見る」で記事へ）
   (function(){

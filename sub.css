@@ -208,3 +208,5 @@ body.view-eatin .mrow.only-eatin,body.view-eatin .crow.only-eatin{display:flex;}
   .cgallery{grid-template-columns:1fr;gap:12px;}
   .cjump a{flex:1 1 0;justify-content:center;flex-direction:column;align-items:center;gap:2px;padding:10px 12px;}
 }
+@media(max-width:760px){.mcards,.mcards.three{scroll-padding-inline:28px;}}
+@media(max-width:460px){.mcards,.mcards.three{scroll-padding-inline:18px;}}
