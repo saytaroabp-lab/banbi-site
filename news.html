@@ -1,0 +1,29 @@
+---
+layout: default
+title: News
+description: Banbi（バンビ）からのお知らせ。営業カレンダー、期間限定メニュー、オードブルのご案内など。鳥取市川端のハンバーガー＆サンドイッチ。
+---
+<header class="phead">
+  <div class="wrap">
+    <div class="phead-grid">
+      <h1>News</h1>
+      <p class="phead-note">営業日のお知らせや期間限定メニューなど、Banbiからのお知らせです。</p>
+    </div>
+  </div>
+</header>
+
+<section class="sec info">
+  <div class="wrap">
+    <ul class="news-list">
+      {% for post in site.posts %}
+      <li><a class="news-row" href="{{ post.url | remove_first: '/' }}">
+        <time class="news-date" datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%Y.%m.%d' }}</time>
+        <span class="news-tag">{{ post.tag | default: 'Info' }}</span>
+        <span class="news-title">{{ post.title }}</span>
+        <span class="news-go" aria-hidden="true">→</span>
+      </a></li>
+      {% endfor %}
+    </ul>
+    {% if site.posts.size == 0 %}<p class="note">お知らせはまだありません。</p>{% endif %}
+  </div>
+</section>

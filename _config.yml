@@ -1,0 +1,22 @@
+# ============================================================
+# Banbi サイト設定（GitHub Pages / Jekyll）
+# ※このファイルは基本さわらなくてOK
+# ============================================================
+title: Banbi
+timezone: Asia/Tokyo
+lang: ja
+
+# News記事のURL： news-2026-12-01-xxx.html（トップと同じ階層に作られる）
+permalink: /news-:year-:month-:day-:title:output_ext
+
+# _posts の記事は自動で記事ページのデザイン（post）になる
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+exclude:
+  - README.md
+  - NEWS-HOWTO.md

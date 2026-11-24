@@ -1,0 +1,23 @@
+---
+layout: default
+---
+<article class="post">
+  <div class="wrap">
+    <div class="srow">
+      <a class="lab back" href="news.html">← News</a>
+    </div>
+    <header class="post-head">
+      <p class="post-meta"><time class="news-date" datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%Y.%m.%d' }}</time>{% if page.tag %}<span class="news-tag">{{ page.tag }}</span>{% endif %}</p>
+      <h1 class="post-title">{{ page.title }}</h1>
+    </header>
+    {% if page.image %}<figure class="post-pic"><img src="{{ page.image }}" alt="{{ page.title }}"></figure>{% endif %}
+    <div class="post-body">
+{{ content }}
+    </div>
+    <nav class="post-nav" aria-label="前後の記事">
+      {% if page.next %}<a class="pn newer" href="{{ page.next.url | remove_first: '/' }}"><small>Newer</small><span>{{ page.next.title }}</span></a>{% else %}<span></span>{% endif %}
+      <a class="pn all" href="news.html"><small>All</small><span>News一覧</span></a>
+      {% if page.previous %}<a class="pn older" href="{{ page.previous.url | remove_first: '/' }}"><small>Older</small><span>{{ page.previous.title }}</span></a>{% else %}<span></span>{% endif %}
+    </nav>
+  </div>
+</article>

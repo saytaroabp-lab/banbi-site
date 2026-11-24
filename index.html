@@ -1,3 +1,6 @@
+---
+# トップページ（Newsの最新5件を自動で表示するため、この3行は消さないでください）
+---
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -12,6 +15,8 @@
 <link rel="stylesheet" href="home.css">
 </head>
 <body>
+<div id="preloader"><div class="pl-inner"><div class="burger"><span class="bl bun-top"></span><span class="bl cheese"></span><span class="bl patty"></span><span class="bl tomato"></span><span class="bl lettuce"></span><span class="bl bun-bottom"></span></div><span class="pl-logo">Banbi</span><div class="pl-meter"><div class="pl-pctrow"><span id="pl-pct">0</span>% <span class="pl-word">loading</span></div><div class="pl-gauge"><span class="pl-fill" id="pl-fill"></span></div></div></div></div>
+
 
 <div class="announce"><div class="marquee"><div class="marquee-track" aria-hidden="true"><span>Burger &amp; Sandwich</span><i>✦</i><span>Banbi</span><i>✦</i><span>Open 10am – 4pm</span><i>✦</i><span>Call (0857) 32-9271</span><i>✦</i><span>Burger &amp; Sandwich</span><i>✦</i><span>Banbi</span><i>✦</i><span>Open 10am – 4pm</span><i>✦</i><span>Call (0857) 32-9271</span><i>✦</i><span>Burger &amp; Sandwich</span><i>✦</i><span>Banbi</span><i>✦</i><span>Open 10am – 4pm</span><i>✦</i><span>Call (0857) 32-9271</span><i>✦</i><span>Burger &amp; Sandwich</span><i>✦</i><span>Banbi</span><i>✦</i><span>Open 10am – 4pm</span><i>✦</i><span>Call (0857) 32-9271</span><i>✦</i><span>Burger &amp; Sandwich</span><i>✦</i><span>Banbi</span><i>✦</i><span>Open 10am – 4pm</span><i>✦</i><span>Call (0857) 32-9271</span><i>✦</i><span>Burger &amp; Sandwich</span><i>✦</i><span>Banbi</span><i>✦</i><span>Open 10am – 4pm</span><i>✦</i><span>Call (0857) 32-9271</span><i>✦</i><span>Burger &amp; Sandwich</span><i>✦</i><span>Banbi</span><i>✦</i><span>Open 10am – 4pm</span><i>✦</i><span>Call (0857) 32-9271</span><i>✦</i><span>Burger &amp; Sandwich</span><i>✦</i><span>Banbi</span><i>✦</i><span>Open 10am – 4pm</span><i>✦</i><span>Call (0857) 32-9271</span><i>✦</i></div></div></div>
 
@@ -22,6 +27,7 @@
     <div class="nav-links" id="links">
       <a href="menu.html">Menu</a>
       <a href="ordoeuvre.html">Hors d'oeuvre</a>
+      <a href="news.html">News</a>
       <a href="#about">About</a>
       <a href="#access">Access</a>
       <a href="https://www.instagram.com/banbi__tottori/" target="_blank" rel="noopener">Instagram</a>
@@ -44,6 +50,28 @@
     </div>
   </div>
 </header>
+
+<!-- NEWS（_posts の新しい記事5件を自動表示） -->
+<section class="sec info" id="news">
+  <div class="wrap">
+    <div class="srow">
+      <span class="lab">News</span>
+      <a class="more" href="news.html">すべて見る <span>→</span></a>
+    </div>
+    <ul class="news-list">
+      {% for post in site.posts limit:5 %}
+      <li><a class="news-row" href="{{ post.url | remove_first: '/' }}" data-preview
+        data-date="{{ post.date | date: '%Y.%m.%d' }}" data-tag="{{ post.tag | default: 'Info' | escape }}" data-title="{{ post.title | escape }}"
+        data-img="{{ post.image | escape }}" data-text="{{ post.content | strip_html | strip_newlines | truncate: 120 | escape }}">
+        <time class="news-date" datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%Y.%m.%d' }}</time>
+        <span class="news-tag">{{ post.tag | default: 'Info' }}</span>
+        <span class="news-title">{{ post.title }}</span>
+        <span class="news-go" aria-hidden="true">→</span>
+      </a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
 
 <!-- OUR BURGER -->
 <section class="sec" id="about">
@@ -110,29 +138,6 @@
   </div>
 </section>
 
-<!-- INFO TILES -->
-<section class="sec" id="news">
-  <div class="wrap">
-    <div class="srow">
-      <span class="lab">Information</span>
-    </div>
-    <div class="tiles-grid">
-      <button class="tile" type="button" data-popup="popup-calendar" style="background-image:url('news-calendar.jpg')">
-        <span class="tile-label"><strong>Calendar</strong><small id="cal-month">2026 June</small></span>
-      </button>
-      <button class="tile" type="button" data-popup="popup-special" style="background-image:url('news-special.jpg')">
-        <span class="tile-label"><strong>Special</strong><small>期間限定バーガー</small></span>
-      </button>
-      <a class="tile" href="ordoeuvre.html" style="background-image:url('ordoeuvre.jpg')">
-        <span class="tile-label"><strong>Hors d'oeuvre</strong><small>オードブル</small></span>
-      </a>
-      <a class="tile" href="menu.html" style="background-image:url('bacon-cheese.jpg')">
-        <span class="tile-label"><strong>Menu</strong><small>メニュー</small></span>
-      </a>
-    </div>
-  </div>
-</section>
-
 <!-- ACCESS -->
 <section class="sec" id="access">
   <div class="wrap">
@@ -181,6 +186,7 @@
         <h4>Menu</h4>
         <a href="menu.html">メニュー</a>
         <a href="ordoeuvre.html">オードブル</a>
+        <a href="news.html">お知らせ</a>
       </div>
       <div>
         <h4>Follow</h4>
@@ -195,9 +201,19 @@
   </div>
 </footer>
 
-<!-- POPUPS -->
-<div class="popup" id="popup-calendar"><div class="popup-inner"><button class="popup-close" type="button" aria-label="閉じる">×</button><img src="news-calendar.jpg" alt="営業カレンダー"></div></div>
-<div class="popup" id="popup-special"><div class="popup-inner"><button class="popup-close" type="button" aria-label="閉じる">×</button><img src="news-special.jpg" alt="Banbi Special グリーンワカモレバーガー"></div></div>
+<!-- NEWS PREVIEW（トップのNewsを押したときのポップアップ） -->
+<div class="popup np" id="np" role="dialog" aria-modal="true" aria-labelledby="np-title">
+  <div class="np-card">
+    <button class="popup-close" type="button" aria-label="閉じる">×</button>
+    <figure class="np-pic" id="np-pic"><img id="np-img" src="" alt=""></figure>
+    <div class="np-body">
+      <p class="post-meta"><span class="news-date" id="np-date"></span><span class="news-tag" id="np-tag"></span></p>
+      <h3 class="np-title" id="np-title"></h3>
+      <p class="np-text" id="np-text"></p>
+      <a class="np-more" id="np-more" href="news.html">詳しく見る <span>→</span></a>
+    </div>
+  </div>
+</div>
 
 <!-- STICKY CALL (mobile) -->
 <a class="sticky-call" href="tel:0857329271">
@@ -211,18 +227,47 @@
   toggle.addEventListener('click',()=>{links.classList.toggle('open');});
   links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
 
-  // カレンダーの年月を自動更新
-  (function(){var el=document.getElementById('cal-month');if(el){var d=new Date();el.textContent=d.getFullYear()+' '+d.toLocaleString('en-US',{month:'long'});}})();
+  // News プレビュー（押すとポップアップ → 「詳しく見る」で記事へ）
+  (function(){
+    var np=document.getElementById('np'); if(!np)return;
+    var $=function(id){return document.getElementById(id);};
+    var last=null;
+    function close(){np.classList.remove('open');document.body.style.overflow='';if(last)last.focus();}
+    document.querySelectorAll('[data-preview]').forEach(function(a){
+      a.addEventListener('click',function(e){
+        if(e.metaKey||e.ctrlKey||e.shiftKey)return;
+        e.preventDefault(); last=a;
+        var d=a.dataset;
+        $('np-date').textContent=d.date; $('np-tag').textContent=d.tag;
+        $('np-title').textContent=d.title; $('np-text').textContent=d.text;
+        $('np-more').href=a.getAttribute('href');
+        if(d.img){$('np-img').src=d.img;$('np-img').alt=d.title;$('np-pic').hidden=false;}else{$('np-pic').hidden=true;}
+        np.classList.add('open'); document.body.style.overflow='hidden';
+        $('np-more').focus({preventScroll:true});
+      });
+    });
+    np.addEventListener('click',function(e){if(e.target===np||e.target.classList.contains('popup-close'))close();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&np.classList.contains('open'))close();});
+  })();
 
-  // タイルのポップアップ
-  document.querySelectorAll('.tile[data-popup]').forEach(function(t){
-    t.addEventListener('click',function(){var p=document.getElementById(t.getAttribute('data-popup'));if(p)p.classList.add('open');});
-  });
-  document.querySelectorAll('.popup').forEach(function(p){
-    p.addEventListener('click',function(e){if(e.target===p||e.target.classList.contains('popup-close'))p.classList.remove('open');});
-  });
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.querySelectorAll('.popup.open').forEach(function(p){p.classList.remove('open');});}});
 </script>
 
+<script>
+(function(){
+  var pre=document.getElementById("preloader"),pct=document.getElementById("pl-pct"),fill=document.getElementById("pl-fill");
+  if(!pre||!pct||!fill)return;
+  var dur=5000,start=null;
+  function step(ts){
+    if(!start)start=ts;
+    var t=Math.min((ts-start)/dur,1);
+    var e=t<0.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+    var v=Math.round(e*100);
+    pct.textContent=v; fill.style.width=v+"%";
+    if(t<1){requestAnimationFrame(step);}
+    else{setTimeout(function(){pre.classList.add("hide");setTimeout(function(){if(pre.parentNode)pre.parentNode.removeChild(pre);},700);},300);}
+  }
+  requestAnimationFrame(step);
+})();
+</script>
 </body>
 </html>
