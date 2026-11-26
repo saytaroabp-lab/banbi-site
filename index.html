@@ -63,17 +63,56 @@
       <a class="more" href="news.html">すべて見る <span>→</span></a>
     </div>
     <ul class="news-list">
-      {% for post in site.posts limit:5 %}
-      <li><a class="news-row" href="{{ post.url | remove_first: '/' }}" data-preview
-        data-date="{{ post.date | date: '%Y.%m.%d' }}" data-tag="{{ post.tag | default: 'Info' | escape }}" data-title="{{ post.title | escape }}"
-        data-img="{{ post.image | escape }}" data-text="{{ post.content | strip_html | strip_newlines | truncate: 120 | escape }}">
-        <time class="news-date" datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%Y.%m.%d' }}</time>
-        <span class="news-tag">{{ post.tag | default: 'Info' }}</span>
-        <span class="news-title">{{ post.title }}</span>
-        <span class="news-go" aria-hidden="true">→</span>
-      </a></li>
-      {% endfor %}
+      {% comment %} 記事に「pin: true」があるものを先に（ピン留め）、残りを新しい順に。合計5件まで {% endcomment %}
+      {% assign news_max = 5 %}
+      {% assign shown = 0 %}
+      {% for post in site.posts %}{% if post.pin == true and shown < news_max %}
+        <li><a class="news-row is-pinned" href="{{ post.url | remove_first: '/' }}" data-preview
+          data-date="{{ post.date | date: '%Y.%m.%d' }}" data-tag="{{ post.tag | default: 'Info' | escape }}" data-title="{{ post.title | escape }}"
+          data-img="{{ post.image | escape }}" data-text="{{ post.content | strip_html | strip_newlines | truncate: 120 | escape }}">
+          <time class="news-date" datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%Y.%m.%d' }}</time>
+          <span class="news-tag">{{ post.tag | default: 'Info' }}</span>
+          <span class="news-title"><span class="news-pin">Pick up</span>{{ post.title }}</span>
+          <span class="news-go" aria-hidden="true">→</span>
+        </a></li>
+        {% assign shown = shown | plus: 1 %}
+      {% endif %}{% endfor %}
+      {% for post in site.posts %}{% if post.pin != true and shown < news_max %}
+        <li><a class="news-row" href="{{ post.url | remove_first: '/' }}" data-preview
+          data-date="{{ post.date | date: '%Y.%m.%d' }}" data-tag="{{ post.tag | default: 'Info' | escape }}" data-title="{{ post.title | escape }}"
+          data-img="{{ post.image | escape }}" data-text="{{ post.content | strip_html | strip_newlines | truncate: 120 | escape }}">
+          <time class="news-date" datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%Y.%m.%d' }}</time>
+          <span class="news-tag">{{ post.tag | default: 'Info' }}</span>
+          <span class="news-title">{{ post.title }}</span>
+          <span class="news-go" aria-hidden="true">→</span>
+        </a></li>
+        {% assign shown = shown | plus: 1 %}
+      {% endif %}{% endfor %}
     </ul>
+  </div>
+</section>
+
+<!-- CALENDAR（営業カレンダー：calendar.js で自動表示） -->
+<section class="sec" id="calendar">
+  <div class="wrap">
+    <div class="srow">
+      <span class="lab">Calendar</span>
+    </div>
+    <div class="bcal-wrap">
+      <div class="bcal-copy">
+        <h2>Open days</h2>
+      </div>
+      <div class="bcal-main">
+        <p class="bcal-today" id="bcal-today" aria-live="polite"></p>
+        <div class="bcal" id="bcal"><noscript>営業カレンダーを表示するには JavaScript を有効にしてください。</noscript></div>
+        <div class="bcal-foot">
+          <ul class="bcal-legend">
+            <li><span class="sw sw-closed"></span>休業日</li>
+            <li><span class="sw sw-today"></span>今日</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -263,6 +302,7 @@
   電話で注文・お問い合わせ
 </a>
 
+<script src="calendar.js"></script>
 <script>
   const toggle=document.getElementById('toggle');
   const links=document.getElementById('links');
